@@ -525,18 +525,7 @@ ggplot(data = flipbookdataset20) +
   labs(title = "Quarterly GDP Growth of G7 in Relation to Brexit Vote", 
        subtitle = "Source: OECD", col = "") +
   theme_bw()
-
-
-
-
-
-
-
-
-
-
-
-
+#data not working
 
 
 
