@@ -43,3 +43,4 @@ decisionSupport::plot_distributions(mcSimulation_object = example_mc_simulation,
                    vars = c("positive_response", "negative_response"),
                    method = 'smooth_simple_overlay',
                    base_size = 12)
+#Test editing
