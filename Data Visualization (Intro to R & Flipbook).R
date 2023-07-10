@@ -1,14 +1,14 @@
 #Introduction to R
 
-#Data visualization
+#Data visualization #### 
 library(ggplot2)
 participants_data<- read.csv("participants_data.csv")
 
-#Create barplot
+#Create barplot ####
 participants_barplot <- table(participants_data$academic_parents)
 barplot(participants_barplot)
 
-#ggplot2: names and email
+#ggplot2: names and email ####
 
 ggplot(data = participants_data,
        aes(x = age,
@@ -20,9 +20,7 @@ ggplot(data = participants_data,
        aes(x = letters_in_first_name,
            y = days_to_email_response)) + geom_point()
 
-###############################
-
-#ggplot2: add color and size
+#ggplot2: add color and size ####
 
 ggplot(data = participants_data,
        aes(x = age,
@@ -48,14 +46,8 @@ ggplot(participants_data,
            color = gender,
            size = years_of_study)) + geom_point()
 
-###############################
+#ggplot2: iris data ####
 
-#ggplot2: iris data
-
-# Create a scatterplot of iris petal length (y)
-# as a function of sepal length (x)
-# with color representing iris species (color)
-# and petal width as bubble sizes (size).
 ggplot(data = iris,
        aes(x = Sepal.Width,
            y = Sepal.Length,
@@ -63,9 +55,18 @@ ggplot(data = iris,
            size = Petal.Width)) + 
   geom_point()
 
-###############################
+# Create a scatterplot of iris petal length (y)
+# as a function of sepal length (x)
+# with color representing iris species (color)
+# and petal width as bubble sizes (size).
 
-#ggplot2: diamond size
+ggplot(iris, aes(x = Sepal.Length,
+                 y = Petal.Length,
+                 color = Species,
+                 size = Petal.Width)) +
+  geom_point()
+
+#ggplot2: diamond size ####
 
 plot1<- ggplot(data = diamonds,
                 aes(x = cut,
@@ -89,9 +90,7 @@ ggplot(data = diamonds,
            alpha = 0.2)) +
   geom_point()
 
-###############################
-
-# ggplot2: Colors and shapes
+# ggplot2: Colors and shapes ####
 
 # Using color with ggplot geom_point
 # Use top_n function to select the top few rows of the data 
@@ -135,9 +134,7 @@ ggplot(data = dsmaller, aes(x = carat,
   # call (str (diamonds) to see that cut is an ordinal factor)
   geom_point()
 
-###############################
-
-# ggplot2: set parameters
+# ggplot2: set parameters ####
 
 # I() Inhibit Interpretation/ Conversion of Objects
 # The I function inhibits the conversion of character vectors to factors and 
@@ -161,9 +158,7 @@ ggplot(data = diamonds,
            color = I("blue"))) +
   geom_point()
 
-###############################
-
-# ggplot2: geom options
+# ggplot2: geom options ####
 
 # With geom different types of plots can be defined e.g. points, line,
 # boxplot, path, smooth.
@@ -187,9 +182,7 @@ ggplot(data = dsmaller,
   geom_point()+
   geom_smooth()
 
-###############################
-
-# ggplot2: smooth function
+# ggplot2: smooth function####
 
 # geom_smooth() selects a smoothing method based on the data.
 # Use method = to specify your preferred smoothing method.
@@ -214,9 +207,7 @@ ggplot(data = dsmaller,
   geom_point() +
   geom_smooth(method = 'glm')
 
-###############################
-
-# ggplot2: boxplots
+# ggplot2: boxplots ####
 
 # Boxplots can be displayed through geom_boxplot().
 ggplot(data = diamonds,
@@ -231,9 +222,7 @@ ggplot(data = diamonds,
            y = price/carat)) +
   geom_boxplot()
 
-###############################
-
-# ggplot2: jitter points
+# ggplot2: jitter points####
 
 # Jittered plots geom_jitter() show all points.
 ggplot(data = diamonds,
@@ -250,9 +239,7 @@ ggplot(data = diamonds,
   geom_point()+
   geom_jitter()
 
-###############################
-
-# ggplot2: adding alpha
+# ggplot2: adding alpha ####
 
 # In case of overplotting changing alpha can help.
 ggplot(data = diamonds,
@@ -271,9 +258,7 @@ ggplot(data = diamonds,
   geom_point()+
   geom_jitter()
 
-###############################
-
-# ggplot2: geom_histogram
+# ggplot2: geom_histogram ####
 
 # Use geom_histogram to create a density plot
 ggplot(data = diamonds,
@@ -303,9 +288,7 @@ ggplot(data = diamonds,
            alpha = I(0.3))) +
   geom_density()
 
-###############################
-
-# ggplot2: subset
+# ggplot2: subset ####
 
 # Use factor to subset the built in mpg data.
 ggplot(data = mpg,
@@ -325,9 +308,7 @@ ggplot(data = mpg,
   geom_point()+
   geom_smooth(method = 'lm')
 
-###############################
-
-# ggplot2: "slow ggplotting"
+# ggplot2: "slow ggplotting" ####
 
 # for aes() in ggplot()
 # using fewer functions; example - using labs() to add a title instead of ggtitle()
@@ -337,9 +318,7 @@ ggplot(data = mpg,
 # For other packages, the :: style to call them
 # write out arguments (no shortcuts) aes(x = gdppercap) not aes(gdppercap)
 
-###############################################################################
-
-# ggplot flip book: slow ggplot 
+## ggplot flip book: slow ggplot ####
 #(https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#3)
 library(tidyverse)
 ggplot(data = participants_data) +
@@ -359,9 +338,7 @@ ggplot(data = participants_data) +
   # Break lines will show in output
   theme_bw()
 
-###############################
-
-# Create multiple plots
+## Create multiple plots####
 
 ggplot(participants_data) +
   aes(x = age, y = number_of_publications) +
@@ -376,9 +353,7 @@ ggplot(participants_data) +
   labs(subtitle = "Male and female researchers' age and number of publications in different continents")+
   theme_light()
 
-###############################
-
-# Create multiple plots with dashed area
+## Create multiple plots with dashed area####
 
 ggplot(participants_data) +
   aes(x = age) +
@@ -408,9 +383,7 @@ ggplot(participants_data) +
   labs(subtitle = "Daily working hours of participants in different continents") +
   theme_bw(base_size = 12)
 
-###############################
-
-# Create colored grid horizontal barplot
+## Create colored grid horizontal barplot####
 
 ggplot(data = Scentdata) + 
   aes(x = Scent) +
@@ -428,9 +401,7 @@ ggplot(data = Scentdata) +
   labs(title = "Ranks of perfumes based on scent and color") +
   labs(subtitle = "Data Source: @Me")
 
-###############################
-
-# Create boxplot comparisons
+## Create boxplot comparisons####
 
 ggplot(participants_data) +
   aes(x = gender) + 
@@ -450,9 +421,7 @@ ggplot(participants_data) +
   labs(subtitle = "Data source: participants_data") +
   labs(caption = "Visualization: Me")
 
-###############################
-
-# Create multiple line graphs
+## Create multiple line graphs####
 
 ggplot(data = participants_data) + 
   aes(x = ppbatch) +
@@ -464,9 +433,7 @@ ggplot(data = participants_data) +
   labs(caption = "Vis: @Me| Source: participants_data") +
   theme_minimal()
 
-###############################
-
-# Create multiple jitter plot with smooth overlay
+## Create multiple jitter plot with smooth overlay####
 
 ggplot(participants_data) +
   aes(x = ppbatch) +
@@ -487,9 +454,7 @@ ggplot(participants_data) +
   labs(caption = "Source: participants_data | Vis: Me \nValues 'jittered' to reduce overplotting") +
   theme_bw(base_size = 13)
 
-###############################
-
-# Create multiple line graph with x- and y- intercepts
+## Create multiple line graph with x- and y- intercepts####
 
 ggplot(data = participants_data) +
   aes(x = `ppbatch`) +
@@ -503,9 +468,7 @@ ggplot(data = participants_data) +
   labs(title = "Researchers data") +
   labs(subtitle = "Source: Me")
 
-###############################
-
-# Create ribbon with multiple line charts and x-, y- intercepts
+## Create ribbon with multiple line charts and x-, y- intercepts####
 
 ggplot(data = flipbookdataset20) +
   aes(x = `Date (start of quarter)`) +
@@ -536,9 +499,8 @@ ggplot(data = flipbookdataset20) +
 
 
 
-################################################################################
 
-# ggplot2: not slow example
+# ggplot2: not slow example####
 
 # Add a title and axis labels in ggplot.
 ggplot(mtcars,
@@ -551,7 +513,7 @@ ggplot(mtcars,
        y = "hp",
        col = "Gear")
 
-# ggplot2: slow ggplotting example
+# ggplot2: slow ggplotting example####
 
 # This is an example of a ‘slow ggplotting’ version for the same plot that
 #we created above. This format can be easier to read later
@@ -566,9 +528,8 @@ ggplot(data = mtcars) +
   labs(col = "Gear") + #"the legend title"
   labs(title = "Cars")
 
-###############################
 
-# ggplot2: geom_tile
+# ggplot2: geom_tile####
 
 # Use dplyr, and ggplot2 together
 
@@ -594,9 +555,7 @@ ggplot(data = melted_cormat,
            fill = value)) + 
   geom_tile()
 
-###############################
-
-# Export figures
+# Export figures####
 
 #To export figures we can use the png function from the grDevices library. 
 #Call the png() function and tell it your specifications for the plot 
