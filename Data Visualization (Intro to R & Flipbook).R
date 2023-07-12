@@ -470,25 +470,31 @@ ggplot(data = participants_data) +
 
 ## Create ribbon with multiple line charts and x-, y- intercepts####
 
-ggplot(data = flipbookdataset20) +
-  aes(x = `Date (start of quarter)`) +
-  aes(y = `Percentage change from previous period`) +
-  aes(ymin = min_) +
-  aes(ymax = max_) +
-  geom_hline(yintercept = 2, col = "grey") +
-  geom_ribbon(alpha = .5) +
-  geom_line(aes(col = Country), alpha = .5)# +
-  geom_line(data = flipbookdataset20, col = "black") +
-  geom_vline(xintercept = 
-               as.numeric(as.POSIXct("2011-01-07")), 
-             lty = 2) +
-  annotate(geom = "text", 
-           x = as.POSIXct("2011-01-07"), y = 1.5, 
-           label = "Brexit Vote", angle = 90) +
-  labs(title = "Quarterly GDP Growth of G7 in Relation to Brexit Vote", 
-       subtitle = "Source: OECD", col = "") +
-  theme_bw()
-#data not working
+#ggplot(data = flipbookdataset20) +
+ # aes(x = `Date (start of quarter)`) +
+  #aes(y = `Percentage change from previous period`) +
+  #aes(ymin = min_) +
+  #aes(ymax = max_) +
+  #geom_hline(yintercept = 0, col = "grey") +
+  #geom_ribbon(alpha = .2) +
+  #geom_line(aes(col = Country), alpha = .2) +
+  #geom_line(data = flipbookdataset20, col = "black") +
+  #geom_vline(xintercept = 
+   #            as.numeric(as.POSIXct("2011-01-07")), 
+    #         lty = 2) +
+  #annotate(geom = "text", 
+   #        x = as.POSIXct("2011-01-07"), y = 1.5, 
+    #       label = "Brexit Vote", angle = 90) +
+  #labs(title = "Quarterly GDP Growth of G7 in Relation to Brexit Vote", 
+   #    subtitle = "Source: OECD", col = "") +
+  #theme_bw()
+
+
+#no suitable dataset from here onwards
+
+
+
+
 
 
 
